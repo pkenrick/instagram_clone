@@ -20,14 +20,21 @@ feature 'Posts' do
     end
   end
 
-  context 'creating a restaurant' do
-    scenario 'user complete form for a new post and then see their post on the posts page' do
+  context 'creating a post' do
+    scenario 'user completes form for a new post and then see their post on the posts page' do
+      sign_up
       visit '/posts'
       click_link 'Add Post'
       fill_in 'Title', with: 'Paris on the weekend!'
       click_button 'Create Post'
       expect(page).to have_content('Paris on the weekend!')
       expect(current_path).to eq('/posts')
+    end
+
+    scenario 'user cannot make a post if not signed in' do
+      visit '/posts'
+      click_link 'Add Post'
+      expect(page).to have_content('You need to sign in or sign up before continuing')
     end
   end
 
