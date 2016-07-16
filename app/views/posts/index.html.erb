@@ -4,7 +4,7 @@
   <div id='postList'>
     <% @posts.each do |post| %>
       <%= link_to post.title, post_path(post) %><br>
-      <%= image_tag post.image.url(:thumb) %><br>
+      <%= link_to image_tag(post.image.url(:thumb)),post_path(post) %><br>
     <% end %>
   </div>
 <% else %>
