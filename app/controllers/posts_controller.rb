@@ -5,17 +5,22 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
-    @post = Post.create(restaurant_params)
+    @post = Post.create(post_params)
     redirect_to '/posts'
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private
 
-  def restaurant_params
-    params.require(:post).permit(:title)
+  def post_params
+    params.require(:post).permit(:title, :image)
   end
 
 end

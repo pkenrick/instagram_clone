@@ -3,7 +3,8 @@
 <% if @posts.any? %>
   <div id='postList'>
     <% @posts.each do |post| %>
-      <%= post.title %><br>
+      <%= link_to post.title, post_path(post) %><br>
+      <%= image_tag post.image.url(:thumb) %><br>
     <% end %>
   </div>
 <% else %>

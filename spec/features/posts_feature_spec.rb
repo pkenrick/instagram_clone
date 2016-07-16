@@ -31,6 +31,19 @@ feature 'Posts' do
     end
   end
 
+  context 'reviewing a post' do
+    
+    let!(:post) { Post.create(title: 'Paris on the weekend!') }
+
+    scenario 'user can click on a post and see see further details' do
+      visit '/posts'
+      click_link 'Paris on the weekend!'
+      expect(page).to have_content('Paris on the weekend!')
+      expect(current_path).to eq("/posts/#{post.id}")
+    end
+  
+  end
+
 
 
 end
