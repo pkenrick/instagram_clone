@@ -1,0 +1,12 @@
+<div id='addPostButton'><a href='/posts/new'>Add Post</a></div>
+
+<% if @posts.any? %>
+  <div id='postList'>
+    <% @posts.each do |post| %>
+      <%= post.title %><br>
+    <% end %>
+  </div>
+<% else %>
+  <div id='noPostsMessage'>No posts added yet</div>
+<% end %>
+
