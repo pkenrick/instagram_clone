@@ -12,9 +12,11 @@
 <% if @posts.any? %>
   <div id='postList'>
     <% @posts.each do |post| %>
-      <div id='postListItem'><%= link_to post.title, post_path(post) %> <%= 
-      post.created_at.strftime("%m/%d/%Y") %> <%=post.created_at.strftime("%H:%M") %><br>
-      <%= link_to image_tag(post.image.url(:thumb)),post_path(post) %><br></div>
+      <div id='postListItem'>
+        <div id='post_user_time'><%= post.user.email %>: <%= post.created_at.strftime("%m/%d/%Y") %> <%=post.created_at.strftime("%H:%M") %></div>
+        <div id='post_pic'><%= link_to image_tag(post.image.url(:medium)),post_path(post) %></div>
+        <div id='post_title'><%= link_to post.title, post_path(post) %></div>
+      </div>
     <% end %>
   </div>
 <% else %>

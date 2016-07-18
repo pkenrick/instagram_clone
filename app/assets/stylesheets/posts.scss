@@ -10,13 +10,27 @@ div.signingButtons {
 }
 
 div#postList {
+  display: block;
   border: solid;
   border-width: 1px;
   background-color: lightgrey;
-  width: 50%;
+  width: 600px;
   margin: 0 auto;
+  padding: 10px;
 }
 
 div#postListItem {
-  margin: 20px;
+  display: block;
+  border: solid;
+  border-width: 1px;
+  /*width: 95%;*/
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: white;
 }
+
+div#post_pic {
+  margin: 0 auto;
+}
+
